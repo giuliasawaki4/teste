@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosidades de Suzano - SP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEMING
+           ========================================================================== */
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #059669; /* Verde remetendo à "Capital das Flores" */
+            --accent-hover: #047857;
+            --border: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #10b981;
+            --accent-hover: #34d399;
+            --border: #334155;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ==========================================================================
+           2. BASE STYLES
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ==========================================================================
+           3. HEADER & HERO
+           ========================================================================== */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--accent);
+            letter-spacing: -0.025em;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        /* ==========================================================================
+           4. CARDS GRID (CURIOSIDADES)
+           ========================================================================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        /* ==========================================================================
+           5. INTERACTIVE SECTION (QUIZ / EXTRA)
+           ========================================================================== */
+        .interactive-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow);
+        }
+
+        .interactive-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .fact-box {
+            background-color: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-weight: 600;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* ==========================================================================
+           6. FOOTER
+           ========================================================================== */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navbar Header -->
+        <header>
+            <div class="logo">Suzano.js</div>
+            <button class="theme-toggle" id="themeToggle">🌙 Modo Escuro</button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Descubra os Segredos de Suzano</h1>
+            <p>Conheça fatos marcantes, históricas curiosidades e a identidade da cidade do Alto Tietê.</p>
+        </section>
+
+        <!-- Main Cards Grid -->
+        <main class="grid">
+            <article class="card">
+                <div class="card-icon">🌸</div>
+                <h2>Capital das Flores</h2>
+                <p>Suzano faz parte do cinturão verde de São Paulo e é historicamente reconhecida como uma das maiores produtoras de flores e plantas ornamentais do Brasil.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🎎</div>
+                <h2>Forte Presença Japonesa</h2>
+                <p>A imigração japonesa deixou marcas profundas na cultura local. O Templo Fudoshinson e a Associação Cultural Suzanense (Bunkyo) são pilares dessa tradição.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">📜</div>
+                <h2>De Ostra a Cidade</h2>
+                <p>O vilarejo original chamava-se "Concórdia" e depois "Guaió". O nome "Suzano" veio em homenagem ao engenheiro ferroviário Joaquin Augusto Suzano Brandão.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🌲</div>
+                <h2>Parque Max Feffer</h2>
+                <p>O principal pulmão verde da cidade conta com o Pavilhão Zênite, pista de skate profissional, arena multiuso e o famoso viveiro municipal.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">📜</div>
+                <h2>Pioneirismo Papeloeiro</h2>
+                <p>Suzano é polo industrial estratégico no setor de papel e celulose, abrigando a sede histórica de uma das maiores produtoras globais do ramo.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🚆</div>
+                <h2>Conexão Histórica</h2>
+                <p>A estação de trem inaugurada em 1875 pela Estrada de Ferro do Norte foi o motor impulsionador para o crescimento e urbanização do antigo distrito.</p>
+            </article>
+        </main>
+
+        <!-- Dynamic Widget Section -->
+        <section class="interactive-section">
+            <h2>Gerador de Fatos Rápidos</h2>
+            <div class="fact-box" id="factDisplay">
+                Clique no botão abaixo para carregar um fato aleatório sobre a cidade!
+            </div>
+            <button class="btn" id="generateFactBtn">Gerar Fato Curioso</button>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Desenvolvido com Vanilla HTML/CSS/JS • Focado em Performance & Acessibilidade</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- 1. DARK MODE TOGGLE --- */
+            const themeToggleBtn = document.getElementById('themeToggle');
+            
+            // Checa preferência do sistema ou cache
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.textContent = '☀️ Modo Claro';
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                let newTheme = 'light';
+
+                if (currentTheme !== 'dark') {
+                    newTheme = 'dark';
+                    themeToggleBtn.textContent = '☀️ Modo Claro';
+                } else {
+                    themeToggleBtn.textContent = '🌙 Modo Escuro';
+                }
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+
+            /* --- 2. GERADOR DE FATOS ALEATÓRIOS --- */
+            const suzanoFacts = [
+                "Suzano foi desmembrada oficialmente do município de Mogi das Cruzes no final da década de 1940.",
+                "O Templo Fudoshinson é um dos raros templos budistas da seita Shingon fora do Japão.",
+                "O Viveiro Municipal de Suzano produz mudas que ajudam na arborização de toda a região do Alto Tietê.",
+                "A cidade possui uma das festas da flor mais tradicionais da Grande São Paulo, a EXPOSUZANO.",
+                "O Rio Tietê passa pelo território de Suzano ainda em suas fases iniciais com águas bem mais limpas que na capital."
+            ];
+
+            const factDisplay = document.getElementById('factDisplay');
+            const generateFactBtn = document.getElementById('generateFactBtn');
+
+            generateFactBtn.addEventListener('click', () => {
+                // Efeito suave de transição
+                factDisplay.style.opacity = '0';
+                
+                setTimeout(() => {
+                    const randomIndex = Math.floor(Math.random() * suzanoFacts.length);
+                    factDisplay.textContent = suzanoFacts[randomIndex];
+                    factDisplay.style.opacity = '1';
+                }, 200);
+            });
+
+            // Transição via JS para o fact display
+            factDisplay.style.transition = 'opacity 0.2s ease-in-out';
+        });
+    </script>
+</body>
+</html>
